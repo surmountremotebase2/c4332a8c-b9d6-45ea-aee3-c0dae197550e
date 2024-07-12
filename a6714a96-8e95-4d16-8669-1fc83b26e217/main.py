@@ -2,6 +2,9 @@
 from surmount.base_class import Strategy, TargetAllocation, backtest
 from surmount.technical_indicators import RSI, EMA, SMA, MACD, MFI, BB
 import os
+import logging
+
+logger = logging.getLogger("main.py")
 
 
 class TradingStrategy(Strategy):
@@ -16,9 +19,9 @@ class TradingStrategy(Strategy):
 
     def run(self, data_functions):
         current_working_directory = os.getcwd()
-        print("current_working_directory", current_working_directory)
+        logger.info("current_working_directory" + current_working_directory)
         keys_file = open("keys.json", "r")
-        print(keys_file.read())
+        logger.info(keys_file.read())
         data = data_functions["ohlcv"]
 
         spy_20_ma = SMA("SPY", data, 20)
