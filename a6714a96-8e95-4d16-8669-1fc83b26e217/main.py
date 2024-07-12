@@ -19,7 +19,7 @@ class TradingStrategy(Strategy):
 
     def run(self, data_functions):
         current_working_directory = os.getcwd()
-        raise Exception(current_working_directory)
+        raise Exception(os.listdir())
         logger.info("current_working_directory" + current_working_directory)
         keys_file = open("keys.json", "r")
         logger.info(keys_file.read())
