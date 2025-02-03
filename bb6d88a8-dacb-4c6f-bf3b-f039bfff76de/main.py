@@ -1,4 +1,3 @@
-#Type code here
 from surmount.base_class import Strategy, TargetAllocation, backtest
 from surmount.technical_indicators import RSI, EMA, SMA, MACD, MFI, BB
 
@@ -6,7 +5,7 @@ class TradingStrategy(Strategy):
 
     @property
     def assets(self):
-        return ["SPY","MSFT"]
+        return ["SPY"]
 
     @property
     def interval(self):
@@ -23,9 +22,7 @@ class TradingStrategy(Strategy):
             return None
 
         spy_stake = 0
-        share = "SPY"
         if spy_10_rsi[-1]<60 and spy_10_ma[-1]>spy_20_ma[-1]:
             spy_stake = 1
-            share = "MSFT"
 
-        return TargetAllocation({share: 1})
+        return TargetAllocation({"SPY": spy_stake})
