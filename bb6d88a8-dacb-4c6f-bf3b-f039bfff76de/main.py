@@ -27,10 +27,3 @@ class TradingStrategy(Strategy):
             spy_stake = 1
 
         return TargetAllocation({"SPY": spy_stake})
-
-
-Updates:
-
-1. Resolve the issue for @jasmin that the has_backtest key is not appearing in the response of my strategies
-
-2.
